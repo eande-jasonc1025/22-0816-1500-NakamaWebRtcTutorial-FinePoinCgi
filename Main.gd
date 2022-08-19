@@ -16,9 +16,11 @@ func _ready():
 	pass # Replace with function body.
 
 func ConnectToNakama():
-	client = Nakama.create_client('defaultkey', "204.48.28.159", 7350,
-	'http', 3, NakamaLogger.LOG_LEVEL.ERROR)
-	
+	##jwc 22-0814-1820 change to local o:  client = Nakama.create_client('defaultkey', "204.48.28.159", 7350, 'http', 3, NakamaLogger.LOG_LEVEL.ERROR)
+	##jwc 22-0814-1900 from local to ipaddress 10.0.0.145 so that 2 separate laptops on same lan can test:  client = Nakama.create_client('defaultkey', "127.0.0.1", 7350, 'http', 3, NakamaLogger.LOG_LEVEL.ERROR)
+	##jwc 22-0814-1920 move to own digital-ocean: client = Nakama.create_client('defaultkey', "10.0.0.145", 7350, 'http', 3, NakamaLogger.LOG_LEVEL.ERROR)
+	##jwc digital ocean - jwc: 
+	client = Nakama.create_client('defaultkey', "164.90.156.178", 7350,	'http', 3, NakamaLogger.LOG_LEVEL.ERROR)	
 	var id = OS.get_unique_id()
 	session = yield(client.authenticate_device_async(id, username), 'completed')
 	if session.is_exception():

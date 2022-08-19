@@ -1,9 +1,13 @@
+##jwc 22-0815-0230 Seems like this file replaced by 'Main.gd' :)+, One of two files (other: 'OnlineMatch.gd' from DavidSnopek
 extends Node
 
 # For developers to set from the outside, for example:
 #   Online.nakama_host = 'nakama.example.com'
 #   Online.nakama_scheme = 'https'
 var nakama_server_key: String = 'defaultkey'
+##jwc 22-0814-2150 o: var nakama_host: String = 'localhost'
+##jwc digital ocean - jwc: 
+##jwc digital ocean - jwc y: var nakama_host: String = '164.90.156.178'
 var nakama_host: String = 'localhost'
 var nakama_port: int = 7350
 var nakama_scheme: String = 'http'
