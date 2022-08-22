@@ -19,8 +19,9 @@ func ConnectToNakama():
 	##jwc 22-0814-1820 change to local o:  client = Nakama.create_client('defaultkey', "204.48.28.159", 7350, 'http', 3, NakamaLogger.LOG_LEVEL.ERROR)
 	##jwc 22-0814-1900 from local to ipaddress 10.0.0.145 so that 2 separate laptops on same lan can test:  client = Nakama.create_client('defaultkey', "127.0.0.1", 7350, 'http', 3, NakamaLogger.LOG_LEVEL.ERROR)
 	##jwc 22-0814-1920 move to own digital-ocean: client = Nakama.create_client('defaultkey', "10.0.0.145", 7350, 'http', 3, NakamaLogger.LOG_LEVEL.ERROR)
-	##jwc digital ocean - jwc: 
-	client = Nakama.create_client('defaultkey', "164.90.156.178", 7350,	'http', 3, NakamaLogger.LOG_LEVEL.ERROR)	
+	##jwc digital ocean - jwc y : 	client = Nakama.create_client('defaultkey', "164.90.156.178", 7350,	'http', 3, NakamaLogger.LOG_LEVEL.ERROR)	
+	##jwc 22-0821-1130 nakama: ubuntu-x86@10.0.0.75 (hpzbook14u): Also Try '.ERROR >> .VERBOSE'
+	client = Nakama.create_client('defaultkey', "10.0.0.75", 7350,	'http', 3, NakamaLogger.LOG_LEVEL.VERBOSE)	
 	var id = OS.get_unique_id()
 	session = yield(client.authenticate_device_async(id, username), 'completed')
 	if session.is_exception():
@@ -45,8 +46,8 @@ func StartMatchMaking():
 	OnlineMatch.connect("match_created", self, "onOnlineMatchMatchCreated")
 	OnlineMatch.connect("match_joined", self, "onOnlineMatchMatchJoined")
 	OnlineMatch.connect("matchmaker_matched", self, "onOnlineMatchMatchmakerMatched")
-	OnlineMatch.connect("play_joined", self, "onOnlineMatchPlayerJoined")
-	OnlineMatch.connect("play_left", self, "onOnlineMatchPlayerLeft")
+	OnlineMatch.connect("player_joined", self, "onOnlineMatchPlayerJoined")
+	OnlineMatch.connect("player_left", self, "onOnlineMatchPlayerLeft")
 	OnlineMatch.connect("player_status_changed", self, "onOnlineMatchPlayerStatusChanged")
 	OnlineMatch.connect("match_ready", self, "onOnlineMatchMatchReady")
 	OnlineMatch.connect("match_not_ready", self, "onOnlineMatchMatchNotReady")
