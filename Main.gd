@@ -20,8 +20,9 @@ func ConnectToNakama():
 	##jwc 22-0814-1900 from local to ipaddress 10.0.0.145 so that 2 separate laptops on same lan can test:  client = Nakama.create_client('defaultkey', "127.0.0.1", 7350, 'http', 3, NakamaLogger.LOG_LEVEL.ERROR)
 	##jwc 22-0814-1920 move to own digital-ocean: client = Nakama.create_client('defaultkey', "10.0.0.145", 7350, 'http', 3, NakamaLogger.LOG_LEVEL.ERROR)
 	##jwc digital ocean - jwc y : 	client = Nakama.create_client('defaultkey', "164.90.156.178", 7350,	'http', 3, NakamaLogger.LOG_LEVEL.ERROR)	
-	##jwc 22-0821-1130 nakama: ubuntu-x86@10.0.0.75 (hpzbook14u): Also Try '.ERROR >> .VERBOSE'
-	client = Nakama.create_client('defaultkey', "10.0.0.75", 7350,	'http', 3, NakamaLogger.LOG_LEVEL.VERBOSE)	
+	##jwc 22-0821-1130 nakama: ubuntu-x86@10.0.0.75 (hpzbook14u): Also Try '.ERROR >> .VERBOSE' y : 	client = Nakama.create_client('defaultkey', "10.0.0.75", 7350,	'http', 3, NakamaLogger.LOG_LEVEL.VERBOSE)	
+	##jwc 22-0822-1440 nakama: ubuntu-x86@10.2.1.41 [enp0s31f6: vcs-ethernet](hpzbook14u)
+	client = Nakama.create_client('defaultkey', "10.2.1.41", 7350, 'http', 3, NakamaLogger.LOG_LEVEL.VERBOSE)	
 	var id = OS.get_unique_id()
 	session = yield(client.authenticate_device_async(id, username), 'completed')
 	if session.is_exception():
